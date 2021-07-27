@@ -1,4 +1,4 @@
-module Math.Error ( Error(..), Result ) where
+module Logic.Calc.Math.Error ( Error(..), Result ) where
 
 
 data Error

@@ -1,4 +1,4 @@
-module Math.Diverse ( factorial ) where
+module Logic.Calc.Math.Diverse ( factorial ) where
 
 
 factorial :: Integral a => a -> a

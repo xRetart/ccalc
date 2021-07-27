@@ -1,8 +1,8 @@
-module RPN.Eval ( eval
-                , Result
-                , Value
-                , RPN
-                ) where
+module Logic.Calc.RPN.Eval ( eval
+                           , Result
+                           , Value
+                           , RPN
+                           ) where
 
 import qualified Data.Map as M
 
@@ -10,13 +10,13 @@ import Data.Maybe ( fromMaybe )
 import Control.Arrow ( (>>>) )
 import Control.Monad ( foldM )
 
-import Math.Error ( Result )
-import Math.Uniform ( factorial )
+import Logic.Calc.Math.Error ( Result )
+import Logic.Calc.Math.Uniform ( factorial )
 
-import RPN.Structure ( Token(..)
-                     , Value
-                     , RPN
-                     )
+import Logic.Calc.RPN.Structure ( Token(..)
+                                , Value
+                                , RPN
+                                )
 
 
 eval :: RPN -> Result Value

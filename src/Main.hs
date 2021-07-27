@@ -2,10 +2,7 @@ module Main where
 
 import System.Environment ( getArgs )
 
-import Logic ( process
-             , ProcessError(..)
-             , ProcessResult
-             )
+import Logic ( process )
 
 
 main :: IO ()

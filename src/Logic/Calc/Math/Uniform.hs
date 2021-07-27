@@ -1,10 +1,10 @@
-module Math.Uniform ( factorial
+module Logic.Calc.Math.Uniform ( factorial
                     , Error(..)
                     , Result
                     ) where
 
-import qualified Math.Diverse as M
-import Math.Error ( Error(..), Result )
+import qualified Logic.Calc.Math.Diverse as M
+import Logic.Calc.Math.Error ( Error(..), Result )
 
 type Value = Float
 

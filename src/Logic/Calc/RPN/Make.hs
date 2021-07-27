@@ -1,4 +1,4 @@
-module RPN.Make ( make ) where
+module Logic.Calc.RPN.Make ( make ) where
 
 import Control.Arrow ( (>>>) )
 import Text.Read ( readMaybe )
@@ -10,12 +10,12 @@ import Data.Map ( Map
                 , (!?)
                 )
 
-import RPN.Error ( Error(..), Result )
-import Math.Uniform ( factorial )
-import RPN.Structure ( RPN
-                     , Token(..)
-                     , Value
-                     )
+import Logic.Calc.RPN.Error ( Error(..), Result )
+import Logic.Calc.Math.Uniform ( factorial )
+import Logic.Calc.RPN.Structure ( RPN
+                                , Token(..)
+                                , Value
+                                )
 
 
 

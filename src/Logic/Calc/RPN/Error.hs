@@ -1,4 +1,4 @@
-module RPN.Error ( Error(..), Result ) where
+module Logic.Calc.RPN.Error ( Error(..), Result ) where
 
 
 data Error

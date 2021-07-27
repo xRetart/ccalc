@@ -1,13 +1,13 @@
-module Error ( Error(..)
-             , Result
-             , rpnResult
-             , mathResult
-             ) where
+module Logic.Calc.Error ( Error(..)
+                        , Result
+                        , rpnResult
+                        , mathResult
+                        ) where
 
 import Control.Arrow ( (>>>) )
 
-import qualified Math.Error as Math ( Error(..) )
-import qualified RPN.Error as RPN ( Error(..) )
+import qualified Logic.Calc.Math.Error as Math ( Error(..) )
+import qualified Logic.Calc.RPN.Error as RPN ( Error(..) )
 
 
 data Error
