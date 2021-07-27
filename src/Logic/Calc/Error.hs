@@ -1,11 +1,9 @@
 module Logic.Calc.Error ( Error(..), Result ) where
 
-import Control.Arrow ( (>>>) )
-
 import qualified Logic.Calc.Math.Error as Math ( Error )
 import qualified Logic.Calc.RPN.Error as RPN ( Error )
 
-
+ 
 data Error
     = RpnError RPN.Error
     | MathError Math.Error

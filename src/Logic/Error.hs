@@ -11,4 +11,4 @@ type Result = Either Error
 
 instance Show Error where
     show (ArgsError err) = show err
-    show (CalcError err)  = show err
+    show (CalcError err) = show err
