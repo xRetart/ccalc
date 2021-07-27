@@ -1,7 +1,6 @@
 module Logic.Calc.RPN.Eval ( eval ) where
 
-import Control.Arrow ( (>>>) )
-import Control.Monad ( foldM )
+import Control.Monad ( foldM, (<=<) )
 
 import Logic.Calc.Math.Error ( Result )
 import Logic.Calc.Math.Uniform ( factorial )
@@ -10,7 +9,7 @@ import Logic.Calc.RPN.Structure ( RPN, Token(..), Value )
 
 
 eval :: RPN -> Result Value
-eval = foldM foldRPN [] >>> (>>= extractResult)
+eval = extractResult <=< foldM foldRPN []
     where
         foldRPN :: [Value] -> Token -> Result [Value]
         foldRPN stack     (Number a)     = Right $ a:stack

@@ -1,14 +1,13 @@
 module Logic ( process ) where
 
-import Control.Arrow ( (>>>), left )
-import Data.Functor ( (<&>) )
+import Control.Arrow ( left )
+import Control.Monad ( (<=<) )
 
-import Logic.Args ( Args, parse )
-
-import Logic.Calc ( calc )
 import Logic.Error ( Error(..), Result )
+import Logic.Args ( Args, parse )
+import Logic.Calc ( calc )
 
 
 -- Run all the programs logic that does not need IO.
 process :: Args -> Result String
-process = parse >>> left ArgsError >>> (>>= (calc >>> left CalcError)) >>> (<&> show)
+process = (show <$>) . (left CalcError . calc <=< left ArgsError . parse)

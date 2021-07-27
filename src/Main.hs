@@ -6,4 +6,4 @@ import Logic ( process )
 
 
 main :: IO ()
-main = getArgs >>= either print putStrLn . process
+main = either print putStrLn . process =<< getArgs 

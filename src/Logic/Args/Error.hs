@@ -8,5 +8,6 @@ data Error
 type Result = Either Error
 
 instance Show Error where
-    show TooLittle = "Not enough arguments."
-    show TooMany = "Too many arguments."
+    show err = case err of
+        TooLittle -> "Not enough arguments."
+        TooMany   -> "Too many arguments."

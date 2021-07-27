@@ -1,6 +1,7 @@
 module Logic.Calc ( calc ) where
 
-import Control.Arrow ( (>>>), left )
+import Control.Arrow ( left )
+import Control.Monad ( (<=<) )
 
 import Logic.Calc.Error ( Error(..), Result )
 
@@ -10,4 +11,4 @@ import Logic.Calc.RPN.Eval ( eval )
 
 
 calc :: String -> Result Value
-calc = words >>> parse >>> left RpnError >>> (>>= eval >>> left MathError)
+calc = (left MathError . eval) <=< (left RpnError . parse . words)

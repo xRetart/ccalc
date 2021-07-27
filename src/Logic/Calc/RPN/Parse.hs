@@ -1,10 +1,6 @@
 module Logic.Calc.RPN.Parse ( parse ) where
 
-import Control.Arrow ( (>>>) )
 import Text.Read ( readMaybe )
-import Data.Functor ( (<&>) )
-import Data.Function ( (&) ) 
-import Data.Maybe ( fromMaybe ) 
 import Data.Map ( Map, fromList , (!?) )
 
 import Logic.Utils ( maybeToEither )
@@ -19,7 +15,7 @@ parse :: [String] -> Result RPN
 parse = mapM (\ str -> maybe (parseNum str) Right (tokenMap !? str))
     where
         parseNum :: String -> Result Token
-        parseNum = readMaybe >>> (<&> Number) >>> maybeToEither UnknownExpression
+        parseNum = maybeToEither UnknownExpression . (Number <$>) . readMaybe
 
         tokenMap :: Map String Token
         tokenMap = fromList
