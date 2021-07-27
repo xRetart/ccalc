@@ -9,8 +9,6 @@ import Logic.Calc.RPN.Structure ( RPN, Token(..) )
 import Logic.Calc.Math.Uniform ( factorial )
 
 
-
-
 parse :: [String] -> Result RPN
 parse = mapM (\ str -> maybe (parseNum str) Right (tokenMap !? str))
     where
