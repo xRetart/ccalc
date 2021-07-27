@@ -1,7 +1,4 @@
-module Logic.Calc.RPN.Structure ( Token(..)
-                                , RPN
-                                , Value
-                                ) where
+module Logic.Calc.RPN.Structure ( Token(..), RPN, Value ) where
 
 import Logic.Calc.Math.Error ( Result )
 

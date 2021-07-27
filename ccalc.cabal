@@ -28,11 +28,12 @@ executable ccalc
     other-modules:
         Logic
         Logic.Error
+        Logic.Utils
         Logic.Args
         Logic.Args.Error
         Logic.Calc
         Logic.Calc.Error
-        Logic.Calc.RPN.Make
+        Logic.Calc.RPN.Parse
         Logic.Calc.RPN.Error
         Logic.Calc.RPN.Structure
         Logic.Calc.RPN.Eval

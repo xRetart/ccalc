@@ -1,22 +1,12 @@
-module Logic.Calc.RPN.Eval ( eval
-                           , Result
-                           , Value
-                           , RPN
-                           ) where
+module Logic.Calc.RPN.Eval ( eval ) where
 
-import qualified Data.Map as M
-
-import Data.Maybe ( fromMaybe )
 import Control.Arrow ( (>>>) )
 import Control.Monad ( foldM )
 
 import Logic.Calc.Math.Error ( Result )
 import Logic.Calc.Math.Uniform ( factorial )
 
-import Logic.Calc.RPN.Structure ( Token(..)
-                                , Value
-                                , RPN
-                                )
+import Logic.Calc.RPN.Structure ( RPN, Token(..), Value )
 
 
 eval :: RPN -> Result Value
@@ -31,15 +21,10 @@ eval = foldM foldRPN [] >>> (>>= extractResult)
         foldRPN _         (Operator _)   = error ""
         foldRPN _         (Function _)   = error ""
         foldRPN _         (RFunction _)  = error ""
-        -- foldRPN _         (Operator _)  = rpnResult ExtraneousOperator
-        -- foldRPN _         (Function _)  = rpnResult ExtraneousFunction
-        -- foldRPN _         (RFunction _)  = rpnResult ExtraneousFunction
 
+        -- TODO: Wait for `RPN.Make` to do the parsing.
         extractResult :: [Value] -> Result Value
-        extractResult l = case len of EQ -> Right $ head l
-                                    --   LT -> rpnResult MissingExpression
-                                    --   GT -> rpnResult ExtraneousOperand
-                                      LT -> error ""
-                                      GT -> error ""
-            where len = length l `compare` 1
-        
+        extractResult l = case length l `compare` 1 of
+          EQ -> Right $ head l
+          LT -> error ""
+          GT -> error ""
