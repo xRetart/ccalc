@@ -3,23 +3,26 @@ name:               ccalc
 version:            0.1.0.0
 
 -- A short (one-line) description of the package.
--- synopsis:
+synopsis: A commandline utility for calculating mathematical expressions in postfix notation.
 
 -- A longer description of the package.
--- description:
+description:
+    The `ccalc` commandline binary parses and evaluates mathematical expressions
+    in postfix notation. It aims to provide a simple and small utility
+    useful for embedding in scripts and in any development procces.
+    Open-source and Written in Haskell it is platform independent and secure.
 
 -- A URL where users can report bugs.
--- bug-reports:
+bug-reports: https://github.com/xRetart/ccalc
 
 -- The license under which the package is released.
--- license:
-author:             xRetart
+license: BSD-3-Clause
+author:             xrchrd
 maintainer:         richard.network96@gmail.com
 
 -- A copyright notice.
 -- copyright:
 -- category:
-extra-source-files: CHANGELOG.md
 
 executable ccalc
     main-is:          Main.hs
@@ -33,10 +36,10 @@ executable ccalc
         Logic.Args.Error
         Logic.Calc
         Logic.Calc.Error
-        Logic.Calc.RPN.Parse
-        Logic.Calc.RPN.Error
-        Logic.Calc.RPN.Structure
-        Logic.Calc.RPN.Eval
+        Logic.Calc.Expression.Parse
+        Logic.Calc.Expression.Error
+        Logic.Calc.Expression.Structure
+        Logic.Calc.Expression.Eval
         Logic.Calc.Math.Uniform
         Logic.Calc.Math.Diverse
         Logic.Calc.Math.Error
